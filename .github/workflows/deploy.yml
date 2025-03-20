@@ -1,13 +1,13 @@
-name: Deploy to App Store
+name: Deploy
 
 on:
   push:
     branches:
-      - main  # O workflow é disparado quando há um push na branch 'main'
+      - main  # The workflow is triggered on a push to the 'main' branch
 
 jobs:
   pre-install:
-    uses: wellingtonrptech/workflow-templates/.github/workflows/pre-install.yaml@main
+    uses: wellingtonrptech/workflow-templates/.github/workflows/preinstall.yaml@main
 
   build:
     needs: pre-install
