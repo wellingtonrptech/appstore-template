@@ -16,7 +16,7 @@ jobs:
       - name: Checkout workflow templates
         uses: actions/checkout@v2
         with:
-          repository: your-username/workflow-templates-repo
+          repository: wellingtonrptech/appstore-template/workflow-templates
           path: .github/workflow-templates
 
       - name: Pre-Install
