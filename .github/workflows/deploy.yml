@@ -7,7 +7,7 @@ on:
 
 jobs:
   pre-install:
-    uses: wellingtonrptech/workflow-templates/.github/workflows/preinstall.yaml@main
+    uses: wellingtonrptech/workflow-templates/.github/workflows/pre-install.yaml@main
 
   build:
     needs: pre-install
