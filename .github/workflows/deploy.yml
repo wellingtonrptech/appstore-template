@@ -6,24 +6,13 @@ on:
       - main  # O workflow é disparado quando há um push na branch 'main'
 
 jobs:
+  pre-install:
+    uses: wellingtonrptech/workflow-templates/.github/workflows/pre-install.yaml@main
+
+  build:
+    needs: pre-install
+    uses: wellingtonrptech/workflow-templates/.github/workflows/build.yaml@main
+
   deploy:
-    runs-on: macos-latest  # Define que o job será executado em um runner com macOS
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2  # Faz o checkout do código do repositório
-
-      - name: Checkout workflow templates
-        uses: actions/checkout@v2
-        with:
-          repository: wellingtonrptech/workflow-templates
-          path: .github/workflow-templates
-
-      - name: Pre-Install
-        uses: wellingtonrptech/workflow-templates/.github/workflows/pre-install.yaml@main
-
-      - name: Build
-        uses: ./.github/workflow-templates/build.yaml
-
-      - name: Deploy
-        uses: ./.github/workflow-templates/deploy.yaml
+    needs: build
+    uses: wellingtonrptech/workflow-templates/.github/workflows/deploy.yaml@main
