@@ -20,7 +20,7 @@ jobs:
           path: .github/workflow-templates
 
       - name: Pre-Install
-        uses: ./.github/workflow-templates/pre-install.yaml
+        uses: wellingtonrptech/workflow-templates/.github/workflows/pre-install.yaml@main
 
       - name: Build
         uses: ./.github/workflow-templates/build.yaml
